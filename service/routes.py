@@ -41,7 +41,7 @@ def list_counters():
     app.logger.info("Request to list all counters...")
 
     counters = [
-        dict(name=count[0], counter=count[1]) 
+        dict(name=count[0], counter=count[1])
         for count in COUNTER.items()
     ]
 
@@ -57,7 +57,7 @@ def create_counters(name):
     app.logger.info("Request to Create counter: %s...", name)
 
     if name in COUNTER:
-        return abort(status.HTTP_409_CONFLICT, 
+        return abort(status.HTTP_409_CONFLICT,
                      f"Counter {name} already exists")
 
     COUNTER[name] = 0
